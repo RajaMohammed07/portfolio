@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 const socials = [
   { icon: Linkedin, label: "LinkedIn", href: "#" },
   { icon: Twitter, label: "Twitter", href: "#" },
-  { icon: Mail, label: "Email", href: "mailto:hello@example.com" },
+  { icon: Mail, label: "Email", href: "mailto:rajamohammed.m2021rvs@gmail.com" },
 ];
 
 const Contact = () => {
