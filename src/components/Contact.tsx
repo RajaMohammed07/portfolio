@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Twitter } from "lucide-react";
+import { Mail, Linkedin, Twitter, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const socials = [
+  { icon: Github, label: "GitHub", href: "https://github.com/Rajamohammed07" },
   { icon: Linkedin, label: "LinkedIn", href: "#" },
   { icon: Twitter, label: "Twitter", href: "#" },
   { icon: Mail, label: "Email", href: "mailto:rajamohammed.m2021rvs@gmail.com" },
