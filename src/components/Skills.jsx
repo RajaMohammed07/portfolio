@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
+import { Code2, Layout, Blocks, Globe, Atom, Smartphone } from "lucide-react";
 
 const skills = [
-  { name: "HTML & CSS", level: 90 },
-  { name: "Bootstrap", level: 85 },
-  { name: "JavaScript", level: 82 },
-  { name: "WordPress", level: 88 },
-  { name: "React.js", level: 60 },
-  { name: "Responsive Design", level: 85 },
+  { name: "HTML & CSS", level: 90, icon: Code2 },
+  { name: "Bootstrap", level: 85, icon: Layout },
+  { name: "JavaScript", level: 82, icon: Blocks },
+  { name: "WordPress", level: 88, icon: Globe },
+  { name: "React.js", level: 60, icon: Atom },
+  { name: "Responsive Design", level: 85, icon: Smartphone },
 ];
 
 const Skills = () => {
@@ -29,37 +30,45 @@ const Skills = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="space-y-3"
-            >
-              <div className="flex justify-between items-baseline">
-                <span className="font-semibold text-lg">{skill.name}</span>
-                <span className="text-sm text-primary font-medium">{skill.level}%</span>
-              </div>
-              
-              <div className="h-3 bg-secondary rounded-full overflow-hidden relative">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.level}%` }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: index * 0.1 + 0.3, ease: "easeOut" }}
-                  className="h-full bg-gradient-to-r from-primary to-accent rounded-full relative"
-                >
+          {skills.map((skill, index) => {
+            const Icon = skill.icon;
+            return (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="space-y-3"
+              >
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                      <Icon size={20} />
+                    </div>
+                    <span className="font-semibold text-lg">{skill.name}</span>
+                  </div>
+                  <span className="text-sm text-primary font-medium">{skill.level}%</span>
+                </div>
+                
+                <div className="h-3 bg-secondary rounded-full overflow-hidden relative">
                   <motion.div
-                    animate={{ opacity: [0.5, 1, 0.5] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                  />
-                </motion.div>
-              </div>
-            </motion.div>
-          ))}
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill.level}%` }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: index * 0.1 + 0.3, ease: "easeOut" }}
+                    className="h-full bg-gradient-to-r from-primary to-accent rounded-full relative"
+                  >
+                    <motion.div
+                      animate={{ opacity: [0.5, 1, 0.5] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
         <motion.div
