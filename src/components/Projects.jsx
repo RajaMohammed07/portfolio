@@ -20,6 +20,7 @@ const projects = [
       "Custom WordPress theme with SEO optimization and fast loading times",
     tech: ["WordPress", "PHP", "CSS"],
     gradient: "from-purple-500/20 to-pink-500/20",
+    link: "https://mridafoundation.org/",
   },
   {
     title: "E-Commerce Store",
@@ -133,9 +134,20 @@ const Projects = () => {
                       <h3 className="font-display text-2xl font-bold group-hover:text-primary transition-colors">
                         {project.title}
                       </h3>
-                      <button className="p-2 rounded-lg bg-secondary hover:bg-primary/20 transition-colors">
-                        <ExternalLink className="w-5 h-5" />
-                      </button>
+                      {project.link ? (
+                        <a 
+                          href={project.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="p-2 rounded-lg bg-secondary hover:bg-primary/20 transition-colors"
+                        >
+                          <ExternalLink className="w-5 h-5" />
+                        </a>
+                      ) : (
+                        <button className="p-2 rounded-lg bg-secondary hover:bg-primary/20 transition-colors">
+                          <ExternalLink className="w-5 h-5" />
+                        </button>
+                      )}
                     </div>
                     <p className="text-muted-foreground leading-relaxed">
                       {project.description}
