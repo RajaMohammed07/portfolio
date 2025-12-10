@@ -4,6 +4,11 @@ import { Card } from "@/components/ui/card";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import businessWebsiteImg from "@/assets/projects/business-website.jpg";
+import wordpressBlogImg from "@/assets/projects/wordpress-blog.jpg";
+import ecommerceStoreImg from "@/assets/projects/ecommerce-store.jpg";
+import reactDashboardImg from "@/assets/projects/react-dashboard.jpg";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
@@ -13,6 +18,7 @@ const projects = [
       "Modern responsive website with smooth animations and mobile-first design",
     tech: ["HTML", "CSS", "JavaScript"],
     gradient: "from-blue-500/20 to-cyan-500/20",
+    image: businessWebsiteImg,
   },
   {
     title: "WordPress Blog",
@@ -21,6 +27,7 @@ const projects = [
     tech: ["WordPress", "PHP", "CSS"],
     gradient: "from-purple-500/20 to-pink-500/20",
     link: "https://mridafoundation.org/",
+    image: wordpressBlogImg,
   },
   {
     title: "E-Commerce Store",
@@ -28,6 +35,7 @@ const projects = [
       "Online shopping platform with Bootstrap framework and responsive layout",
     tech: ["Bootstrap", "JavaScript", "HTML"],
     gradient: "from-green-500/20 to-emerald-500/20",
+    image: ecommerceStoreImg,
   },
   {
     title: "React Dashboard",
@@ -35,6 +43,7 @@ const projects = [
       "Learning project: Interactive dashboard with modern React components",
     tech: ["React.js", "CSS", "JavaScript"],
     gradient: "from-orange-500/20 to-red-500/20",
+    image: reactDashboardImg,
   },
 ];
 
@@ -123,13 +132,19 @@ const Projects = () => {
               onMouseEnter={() => handleCardHover(index, true)}
               onMouseLeave={() => handleCardHover(index, false)}
             >
-              <Card className="group relative overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300 h-full">
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                />
+            <Card className="group relative overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300 h-full">
+                {/* Project Thumbnail */}
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-40 group-hover:opacity-60 transition-opacity duration-300`} />
+                </div>
 
-                <div className="relative p-8 h-full flex flex-col">
-                  <div className="mb-6">
+                <div className="relative p-6 h-full flex flex-col">
+                  <div className="mb-4">
                     <div className="flex items-start justify-between mb-4">
                       <h3 className="font-display text-2xl font-bold group-hover:text-primary transition-colors">
                         {project.title}
